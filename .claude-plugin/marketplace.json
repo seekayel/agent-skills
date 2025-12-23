@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "agent-skills-marketplace",
+  "version": "0.0.1",
+  "description": "Bundled plugins for Claude Code to orchestrate coding agents.",
+  "owner": {
+    "name": "Kam Lasater",
+    "email": "ckl@seekayel.com"
+  },
+  "plugins": [
+    {
+      "name": "orchestration-plugin",
+      "source": "./plugins/orchestration-plugin"
+    }
+  ]
+}
