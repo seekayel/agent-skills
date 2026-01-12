@@ -1,0 +1,23 @@
+{
+  "name": "research-plan-implement-plugin",
+  "version": "0.1.0",
+  "description": "Structured workflow for AI-assisted development using research, planning, and systematic implementation phases",
+  "skills": "./research-plan-implement/",
+  "agents": [
+    {
+      "name": "codebase-locator",
+      "source": "./agents/codebase-locator.md",
+      "description": "Finds relevant files and directories in a codebase based on topic, feature, or functionality"
+    },
+    {
+      "name": "codebase-analyzer",
+      "source": "./agents/codebase-analyzer.md",
+      "description": "Performs deep analysis of code structure, patterns, dependencies, and system architecture"
+    },
+    {
+      "name": "pattern-finder",
+      "source": "./agents/pattern-finder.md",
+      "description": "Identifies coding patterns, conventions, and best practices used in a codebase"
+    }
+  ]
+}

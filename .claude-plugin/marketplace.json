@@ -11,6 +11,10 @@
     {
       "name": "orchestration-plugin",
       "source": "./plugins/orchestration-plugin"
+    },
+    {
+      "name": "research-plan-implement-plugin",
+      "source": "./plugins/research-plan-implement-plugin"
     }
   ]
 }
