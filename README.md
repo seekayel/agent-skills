@@ -49,6 +49,12 @@ When implementing changes, features, or bug fixes, follow the research-plan-impl
    - Verify success criteria at each step
    - Commit after completing each phase
 
+5. **Testing Phase**: Run the tests defined in the Planning phase:
+   - Execute all test cases from the testing strategy
+   - Verify all success criteria are met
+   - Fix any failures before considering the work complete
+   - Do not skip tests or mark work as done until all tests pass
+
 ### Agent Usage
 
 When researching the codebase, spawn these specialized agents in parallel:
@@ -74,9 +80,10 @@ For a more concise configuration, use this minimal snippet:
 
 For all code changes:
 1. **Research first** - Use codebase-locator, codebase-analyzer, and pattern-finder agents to understand the codebase before making changes
-2. **Plan before implementing** - Create a phased implementation plan with success criteria
+2. **Plan before implementing** - Create a phased implementation plan with success criteria and testing strategy
 3. **Validate the plan** - Verify completeness before writing code
 4. **Implement systematically** - Follow the plan, verify each phase, commit often
+5. **Test thoroughly** - Run all tests from the plan, fix failures, do not skip tests
 ```
 
 ### Agent-Focused Version
@@ -99,9 +106,58 @@ Wait for all agents to complete, then synthesize findings into an implementation
 
 ## Installation
 
-1. Clone this repository or add it as a git submodule
-2. Reference the plugins in your Claude Code configuration
-3. Add the appropriate AGENTS.md snippet to your project
+### Install the Plugin Marketplace
+
+Add the agent-skills marketplace to your Claude Code configuration:
+
+```bash
+# Add the marketplace to your global Claude Code settings
+claude mcp add agent-skills-marketplace https://github.com/seekayel/agent-skills
+```
+
+Or manually add to your `~/.claude/settings.json`:
+
+```json
+{
+  "plugins": {
+    "marketplaces": [
+      {
+        "name": "agent-skills-marketplace",
+        "source": "https://github.com/seekayel/agent-skills"
+      }
+    ]
+  }
+}
+```
+
+### Install Individual Plugins
+
+Once the marketplace is added, install specific plugins:
+
+```bash
+# Install the research-plan-implement plugin
+claude plugin install research-plan-implement-plugin
+
+# Install the orchestration plugin
+claude plugin install orchestration-plugin
+```
+
+Or add to your project's `.claude/settings.json`:
+
+```json
+{
+  "plugins": {
+    "installed": [
+      "agent-skills-marketplace/research-plan-implement-plugin",
+      "agent-skills-marketplace/orchestration-plugin"
+    ]
+  }
+}
+```
+
+### Configure Your Project
+
+Add the appropriate AGENTS.md snippet (see Usage section above) to your project to ensure Claude follows the research-plan-implement workflow.
 
 ## License
 

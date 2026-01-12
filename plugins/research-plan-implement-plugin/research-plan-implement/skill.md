@@ -9,7 +9,7 @@ agents:
 
 # Research-Plan-Implement Workflow
 
-This skill provides a structured approach to software development through three distinct phases: Research, Plan, and Implement. Each phase builds on the previous to ensure thorough understanding before making changes.
+This skill provides a structured approach to software development through five distinct phases: Research, Plan, Validate, Implement, and Test. Each phase builds on the previous to ensure thorough understanding before making changes and verification after.
 
 ## Workflow Phases
 
@@ -139,6 +139,38 @@ Execute the plan systematically:
 - Document any issues encountered
 - Commit after completing each phase
 
+### Phase 5: Run Tests
+
+After implementation, execute the testing strategy defined in the plan:
+
+1. **Execute Test Cases**
+   - Run all tests specified in the Testing Strategy
+   - Execute unit tests for modified components
+   - Run integration tests for affected systems
+   - Perform any manual verification steps defined
+
+2. **Verify Success Criteria**
+   - Check each success criterion from the plan
+   - Confirm all acceptance criteria are met
+   - Validate edge cases and error handling
+
+3. **Handle Failures**
+   - If tests fail, diagnose the root cause
+   - Fix issues in the implementation
+   - Re-run failed tests until they pass
+   - Do NOT mark work as complete until all tests pass
+
+4. **Document Results**
+   - Record test execution results
+   - Note any issues discovered and how they were resolved
+   - Update plan with final completion status
+
+**Testing Rules:**
+- Never skip tests defined in the plan
+- All tests must pass before work is considered complete
+- If new issues are discovered, add them to the plan and address them
+- Run the full test suite, not just new tests
+
 ## Usage Instructions
 
 When invoking this skill, specify your intent:
@@ -147,6 +179,7 @@ When invoking this skill, specify your intent:
 2. **To Plan:** "Create an implementation plan for [feature/change]"
 3. **To Validate:** "Validate the implementation plan for [feature/change]"
 4. **To Implement:** "Implement the plan for [feature/change]"
+5. **To Test:** "Run the tests for [feature/change]"
 
 ## Agent Collaboration
 
@@ -169,7 +202,7 @@ For long-running projects, save progress using a structured format:
 ## Session: [Date/Time]
 
 ### Current State
-- Phase: [Research/Plan/Implement]
+- Phase: [Research/Plan/Validate/Implement/Test]
 - Progress: [Description]
 
 ### Completed
