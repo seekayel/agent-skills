@@ -1,0 +1,6 @@
+{
+  "name": "research-plan-implement-plugin",
+  "version": "0.1.0",
+  "description": "Structured workflow for AI-assisted development using research, planning, and systematic implementation phases",
+  "skills": "./research-plan-implement/"
+}
