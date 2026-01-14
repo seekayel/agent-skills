@@ -1,6 +1,0 @@
-{
-  "name": "orchestration-plugin",
-  "version": "0.0.1",
-  "description": "Orchestrate coding agents",
-  "skills": "./session-analysis/"
-}
