@@ -15,6 +15,8 @@ This skill provides a structured approach to software development through five d
 
 ### Phase 1: Research Codebase
 
+Save findings to: `_thoughts/research/NNN_topic_name.md`
+
 Before making any changes, deeply explore the codebase to understand:
 
 1. **Architecture Analysis**
@@ -45,6 +47,8 @@ Before making any changes, deeply explore the codebase to understand:
 - Are there any architectural constraints to consider?
 
 ### Phase 2: Create Implementation Plan
+
+Save plan to: `_thoughts/plan/NNN_feature_name.md`
 
 Based on research findings, create a detailed implementation plan:
 
@@ -97,6 +101,8 @@ Based on research findings, create a detailed implementation plan:
 
 ### Phase 3: Validate Plan
 
+Save validation notes to: `_thoughts/validate/NNN_feature_name_validation.md`
+
 Before implementation, verify the plan is complete and correct:
 
 1. **Completeness Check**
@@ -115,6 +121,8 @@ Before implementation, verify the plan is complete and correct:
    - Rollback path is clear
 
 ### Phase 4: Implement Plan
+
+Save progress to: `_thoughts/implement/NNN_feature_name.md`
 
 Execute the plan systematically:
 
@@ -140,6 +148,8 @@ Execute the plan systematically:
 - Commit after completing each phase
 
 ### Phase 5: Run Tests
+
+Save results to: `_thoughts/test/NNN_feature_name_results.md`
 
 After implementation, execute the testing strategy defined in the plan:
 
@@ -194,9 +204,46 @@ Performs deep analysis of code structure, patterns, and dependencies. Use for un
 ### Pattern Finder Agent
 Identifies coding patterns, conventions, and best practices used in the codebase. Use to ensure new code follows existing standards.
 
+## Document Storage
+
+All workflow documents MUST be written to the `_thoughts` directory with stage-based subdirectories:
+
+```
+_thoughts/
+├── research/           # Research findings and analysis
+│   ├── 001_architecture_analysis.md
+│   └── 002_pattern_discovery.md
+├── plan/               # Implementation plans
+│   ├── 001_migrate_to_bun.md
+│   └── 002_add_authentication.md
+├── validate/           # Validation notes and checklists
+│   └── 001_migrate_to_bun_validation.md
+├── implement/          # Implementation progress tracking
+│   ├── 001_migrate_to_bun.md
+│   └── 002_add_authentication.md
+└── test/               # Test results and reports
+    └── 001_migrate_to_bun_results.md
+```
+
+### File Naming Convention
+
+Files should follow this naming pattern:
+- Format: `NNN_descriptive_name.md`
+- NNN: Three-digit sequential number (001, 002, etc.)
+- Use lowercase with underscores for the descriptive name
+- Match filenames across stages for the same feature (e.g., `001_migrate_to_bun.md` in both `plan/` and `implement/`)
+
+### When to Write Documents
+
+1. **Research Phase**: Write to `_thoughts/research/` when documenting findings
+2. **Plan Phase**: Write to `_thoughts/plan/` when creating implementation plans
+3. **Validate Phase**: Write to `_thoughts/validate/` when documenting validation results
+4. **Implement Phase**: Write to `_thoughts/implement/` to track progress and decisions
+5. **Test Phase**: Write to `_thoughts/test/` for test results and reports
+
 ## Context Persistence
 
-For long-running projects, save progress using a structured format:
+For long-running projects, save progress using a structured format in the appropriate `_thoughts/` subdirectory:
 
 ```markdown
 ## Session: [Date/Time]
