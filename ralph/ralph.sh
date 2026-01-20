@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Ralph loop script - runs AI agent with prompt until cancelled or iteration limit reached
-# Usage: ./ralph/ralph.sh [opencode|codex|claude|gemini] [ITERATION_LIMIT]
+# Usage: ralph.sh [opencode|codex|claude|gemini] [ITERATION_LIMIT]
 # Default tool: codex
 # Default iteration limit: 500
+# Can be run from any directory. prd.json should be at the root of the directory where script is invoked.
 
 # Get tool from command line argument or use default
 TOOL=${1:-codex}
@@ -11,7 +12,7 @@ TOOL=${1:-codex}
 # Validate tool parameter
 if [ "$TOOL" != "opencode" ] && [ "$TOOL" != "codex" ] && [ "$TOOL" != "claude" ] && [ "$TOOL" != "gemini" ]; then
     echo "Error: Invalid tool '$TOOL'. Must be 'opencode', 'codex', 'claude', or 'gemini'."
-    echo "Usage: ./ralph/ralph.sh [opencode|codex|claude|gemini] [ITERATION_LIMIT]"
+    echo "Usage: ralph.sh [opencode|codex|claude|gemini] [ITERATION_LIMIT]"
     exit 1
 fi
 
@@ -22,8 +23,8 @@ ITERATION_LIMIT=${2:-500}
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROMPT_FILE="${SCRIPT_DIR}/prompt.md"
 STOP_FILE="${SCRIPT_DIR}/STOP"
-# Get the repo root directory (parent of ralph directory)
-REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+# Get the project root directory (where script is invoked from - prd.json lives here)
+PROJECT_ROOT="$PWD"
 
 # Check if prompt file exists
 if [ ! -f "$PROMPT_FILE" ]; then
@@ -44,13 +45,13 @@ echo "Starting Ralph loop..."
 echo "Tool: $TOOL"
 echo "Iteration limit: $ITERATION_LIMIT"
 echo "Prompt file: $PROMPT_FILE"
-echo "Working directory: $REPO_ROOT"
+echo "Project root: $PROJECT_ROOT"
 echo "Press Ctrl+C to cancel"
 echo ""
 
-# Change to repo root directory
-cd "$REPO_ROOT" || {
-    echo "Error: Failed to change to repo root directory: $REPO_ROOT"
+# Change to project root directory (where prd.json should be)
+cd "$PROJECT_ROOT" || {
+    echo "Error: Failed to change to project root directory: $PROJECT_ROOT"
     exit 1
 }
 
@@ -71,7 +72,7 @@ while [ $ITERATION -lt $ITERATION_LIMIT ]; do
     ITERATION=$((ITERATION + 1))
     echo "[Iteration $ITERATION/$ITERATION_LIMIT] Running $TOOL..."
 
-    # Run the selected tool with the prompt from the repo root (non-interactive, auto-exit)
+    # Run the selected tool with the prompt from the project root (non-interactive, auto-exit)
     # Capture both stdout and stderr to check for rate limit errors
     OUTPUT_FILE=$(mktemp)
 
