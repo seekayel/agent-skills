@@ -9,8 +9,8 @@
   },
   "plugins": [
     {
-      "name": "orchestration-plugin",
-      "source": "./plugins/orchestration-plugin"
+      "name": "ralph-plugin",
+      "source": "./plugins/ralph-plugin"
     },
     {
       "name": "research-plan-implement-plugin",
