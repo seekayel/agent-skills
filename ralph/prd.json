@@ -1,0 +1,208 @@
+{
+  "project": "email-web",
+  "description": "Email MBOX Analysis Application - PRD Work Items",
+  "last_updated": "2026-01-20",
+  "work_items": [
+    {
+      "id": "PHASE6-001",
+      "phase": 6,
+      "title": "Address Rankings API Endpoints",
+      "status": "done",
+      "priority": "high",
+      "description": "Implement /api/v1/addresses endpoints for address statistics, rankings leaderboard, and detailed address metrics"
+    },
+    {
+      "id": "PHASE6-002",
+      "phase": 6,
+      "title": "Rankings Page - Frontend UI",
+      "status": "todo",
+      "priority": "high",
+      "description": "Create Rankings page with leaderboard table showing top addresses by influence/activity scores, sortable columns, and address detail view"
+    },
+    {
+      "id": "PHASE6-003",
+      "phase": 6,
+      "title": "Organization Detection & Classification",
+      "status": "todo",
+      "priority": "medium",
+      "description": "Auto-detect organizations from email domains and classify them (corporate, academic, government, personal)"
+    },
+    {
+      "id": "PHASE6-004",
+      "phase": 6,
+      "title": "Organizations Page - Frontend UI",
+      "status": "todo",
+      "priority": "medium",
+      "description": "Create Organizations page showing detected organizations with communication statistics"
+    },
+    {
+      "id": "PHASE7-001",
+      "phase": 7,
+      "title": "FTS5 Full-Text Search Implementation",
+      "status": "todo",
+      "priority": "medium",
+      "description": "Implement SQLite FTS5 full-text search with custom tokenization and index triggers"
+    },
+    {
+      "id": "PHASE7-002",
+      "phase": 7,
+      "title": "Advanced Search API",
+      "status": "todo",
+      "priority": "medium",
+      "description": "Implement /api/v1/search endpoint with boolean operators, faceted search, and result highlighting"
+    },
+    {
+      "id": "PHASE7-003",
+      "phase": 7,
+      "title": "Search Page - Frontend UI",
+      "status": "todo",
+      "priority": "medium",
+      "description": "Connect AdvancedSearch component to search API with results display and filters"
+    },
+    {
+      "id": "PHASE8-001",
+      "phase": 8,
+      "title": "Network Analysis API",
+      "status": "todo",
+      "priority": "low",
+      "description": "Implement network graph API endpoint returning nodes and edges for address communication network"
+    },
+    {
+      "id": "PHASE8-002",
+      "phase": 8,
+      "title": "Network Visualization Page",
+      "status": "todo",
+      "priority": "low",
+      "description": "Connect NetworkVisualization component to API and create interactive network analysis page"
+    },
+    {
+      "id": "PHASE1-001",
+      "phase": 1,
+      "title": "MBOX Reading & Parsing",
+      "status": "done",
+      "description": "Parse MBOX files and extract emails with metadata"
+    },
+    {
+      "id": "PHASE2-001",
+      "phase": 2,
+      "title": "Attachment Extraction & Storage",
+      "status": "done",
+      "description": "Extract and store attachments with deduplication"
+    },
+    {
+      "id": "PHASE3-001",
+      "phase": 3,
+      "title": "Basic Web Interface & Email Viewing",
+      "status": "done",
+      "description": "Web interface for browsing emails"
+    },
+    {
+      "id": "PHASE4-001",
+      "phase": 4,
+      "title": "Email Threading & Conversation View",
+      "status": "done",
+      "description": "Thread detection and conversation display"
+    },
+    {
+      "id": "PHASE9-001",
+      "phase": 9,
+      "title": "Analytics Dashboard - Backend API",
+      "status": "done",
+      "description": "Analytics overview API endpoint with email statistics"
+    },
+    {
+      "id": "PHASE9-002",
+      "phase": 9,
+      "title": "Analytics Dashboard - Frontend UI",
+      "status": "done",
+      "priority": "high",
+      "description": "Implement Analytics Dashboard frontend connecting to /api/v1/analytics/overview endpoint. Display totals, storage stats, activity metrics, and date range."
+    },
+    {
+      "id": "PHASE9-003",
+      "phase": 9,
+      "title": "Analytics Timeline Chart",
+      "status": "done",
+      "priority": "medium",
+      "description": "Add timeline chart showing email activity over time"
+    },
+    {
+      "id": "PHASE9-004",
+      "phase": 9,
+      "title": "Top Senders/Recipients Analytics",
+      "status": "done",
+      "priority": "medium",
+      "description": "Add top senders and recipients analytics with charts"
+    },
+    {
+      "id": "PHASE9-005",
+      "phase": 9,
+      "title": "Attachment Statistics Analytics",
+      "status": "done",
+      "priority": "high",
+      "description": "Add attachment statistics with file type breakdown, storage utilization, and largest files analysis. API endpoint and frontend component."
+    },
+    {
+      "id": "PHASE9-006",
+      "phase": 9,
+      "title": "Analytics Data Export",
+      "status": "done",
+      "priority": "medium",
+      "description": "Add export capabilities for analytics data in CSV and JSON formats"
+    },
+    {
+      "id": "PHASE9-007",
+      "phase": 9,
+      "title": "Email Activity Heatmap",
+      "status": "done",
+      "priority": "medium",
+      "description": "Add heatmap visualization showing email activity by hour of day and day of week"
+    },
+    {
+      "id": "PHASE9-008",
+      "phase": 9,
+      "title": "Thread Activity Analytics",
+      "status": "done",
+      "priority": "medium",
+      "description": "Add thread activity analysis showing conversation patterns, engagement metrics, thread size/duration distributions, and top active threads"
+    },
+    {
+      "id": "PHASE10-001",
+      "phase": 10,
+      "title": "IMAP Server - Basic Implementation",
+      "status": "done",
+      "description": "Basic IMAP server setup with capabilities"
+    },
+    {
+      "id": "PHASE10-002",
+      "phase": 10,
+      "title": "IMAP Server - Full Protocol Implementation",
+      "status": "todo",
+      "priority": "low",
+      "description": "Implement full IMAP protocol with proper authentication, mailbox operations, and email fetching"
+    },
+    {
+      "id": "UI-001",
+      "phase": 3,
+      "title": "Email List Type Safety",
+      "status": "done",
+      "priority": "low",
+      "description": "Fix EmailList component TypeScript type for emails array"
+    },
+    {
+      "id": "UI-002",
+      "phase": 3,
+      "title": "Email List API Endpoint",
+      "status": "done",
+      "priority": "high",
+      "description": "Fix EmailList to use correct API endpoint /api/v1/emails and handle response structure"
+    },
+    {
+      "id": "DEV-001",
+      "phase": 0,
+      "title": "Enforce lint before commit",
+      "status": "done",
+      "description": "Add pre-commit hook for linting"
+    }
+  ]
+}
