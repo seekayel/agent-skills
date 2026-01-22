@@ -77,10 +77,11 @@ while [ $ITERATION -lt $ITERATION_LIMIT ]; do
     OUTPUT_FILE=$(mktemp)
 
     if [ "$TOOL" = "opencode" ]; then
-        # Run opencode with ollama qwen3:30b
+        # Run opencode with ollama $OLLAMA_MODEL: qwen3:30b or devstral-small-2:latest
+        $OLLAMA_MODEL=${OLLAMA_MODEL:-devstral-small-2:latest}
         # Generate title with format: ralph:YYMMDD:HHMM:iterationOFlimit
         TITLE="ralph:$(date +%y%m%d):$(date +%H%M):${ITERATION}of${ITERATION_LIMIT}"
-        opencode run -m "ollama/qwen3:30b" --title "$TITLE" --print-logs --file "$PROMPT_FILE" --log-level "WARN" "Do the work requesteded in $PROMPT_FILE." 2>&1 | tee "$OUTPUT_FILE"
+        opencode run -m "ollama/$OLLAMA_MODEL" --title "$TITLE" --print-logs --file "$PROMPT_FILE" --log-level "WARN" "Do the work requesteded in $PROMPT_FILE." 2>&1 | tee "$OUTPUT_FILE"
         EXIT_CODE=${PIPESTATUS[0]}
     elif [ "$TOOL" = "claude" ]; then
         # Run claude code CLI in non-interactive mode
@@ -100,6 +101,14 @@ while [ $ITERATION -lt $ITERATION_LIMIT ]; do
     if grep -q "usage_limit_reached" "$OUTPUT_FILE"; then
         echo ""
         echo "OpenAI usage limit reached (429 error). Stopping."
+        rm -f "$OUTPUT_FILE"
+        exit 1
+    fi
+
+    # Check for Claude usage limit error
+    if grep -qi "you've hit your limit" "$OUTPUT_FILE"; then
+        echo ""
+        echo "Claude usage limit reached. Stopping."
         rm -f "$OUTPUT_FILE"
         exit 1
     fi
