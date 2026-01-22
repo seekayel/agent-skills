@@ -1,6 +1,6 @@
 ---
 name: research-plan-implement
-description: A structured workflow for AI-assisted development using research, planning, and systematic implementation phases
+description: A structured workflow for AI-assisted development using research, planning, and systematic implementation phases. Users refer to this skill as RPI, rpi or Research Plan Implement.
 agents:
   - codebase-locator
   - codebase-analyzer
@@ -9,7 +9,7 @@ agents:
 
 # Research-Plan-Implement Workflow
 
-This skill provides a structured approach to software development through five distinct phases: Research, Plan, Validate, Implement, and Test. Each phase builds on the previous to ensure thorough understanding before making changes and verification after.
+This skill provides a structured approach to software development through five distinct phases: Research, Plan, Validate, Implement, and Test. Each phase builds on the previous to ensure thorough understanding before making changes and verification after. This skill can be referred to as RPI, rpi, Research Plan Implement or research-plan-implement.
 
 ## Workflow Phases
 
@@ -17,7 +17,7 @@ This skill provides a structured approach to software development through five d
 
 Save findings to: `_thoughts/research/NNN_topic_name.md`
 
-Before making any changes, deeply explore the codebase to understand:
+Before writing the research summary or making any changes to the filesystem, deeply explore the codebase to understand:
 
 1. **Architecture Analysis**
    - Identify the overall project structure and organization
