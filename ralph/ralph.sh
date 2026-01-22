@@ -78,7 +78,8 @@ while [ $ITERATION -lt $ITERATION_LIMIT ]; do
 
     if [ "$TOOL" = "opencode" ]; then
         # Run opencode with ollama $OLLAMA_MODEL: qwen3:30b or devstral-small-2:latest
-        $OLLAMA_MODEL=${OLLAMA_MODEL:-devstral-small-2:latest}
+        OLLAMA_MODEL='qwen3:30b'
+        # OLLAMA_MODEL='devstral-small-2:latest'
         # Generate title with format: ralph:YYMMDD:HHMM:iterationOFlimit
         TITLE="ralph:$(date +%y%m%d):$(date +%H%M):${ITERATION}of${ITERATION_LIMIT}"
         opencode run -m "ollama/$OLLAMA_MODEL" --title "$TITLE" --print-logs --file "$PROMPT_FILE" --log-level "WARN" "Do the work requesteded in $PROMPT_FILE." 2>&1 | tee "$OUTPUT_FILE"
