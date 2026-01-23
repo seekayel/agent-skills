@@ -1,0 +1,52 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "provider": {
+    // All three entries use the LM Studio OpenAI-compatible endpoint.
+    // Split into multiple provider keys only to keep the model catalog grouped the way you had it.
+    "lmstudio-qwen": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (Qwen)",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "qwen3-next-80b": {
+          "name": "Qwen3 Next 80B",
+          "attachment": false,
+          "contextLength": 32768
+        }
+      }
+    },
+
+    "lmstudio-mistral": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (Mistral)",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "devstral-2-2512": {
+          "name": "Devstral 2 2512",
+          "attachment": false,
+          "contextLength": 32768
+        }
+      }
+    },
+
+    "lmstudio-glm": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (GLM)",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "glm-4.7-flash": {
+          "name": "GLM 4.7 Flash",
+          "attachment": false,
+          "contextLength": 32768
+        }
+      }
+    }
+  }
+}

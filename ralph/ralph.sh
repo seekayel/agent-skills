@@ -77,12 +77,16 @@ while [ $ITERATION -lt $ITERATION_LIMIT ]; do
     OUTPUT_FILE=$(mktemp)
 
     if [ "$TOOL" = "opencode" ]; then
-        # Run opencode with ollama $OLLAMA_MODEL: qwen3:30b or devstral-small-2:latest
-        OLLAMA_MODEL='qwen3:30b'
-        # OLLAMA_MODEL='devstral-small-2:latest'
+        # Run opencode with LM Studio models
+        # OPENCODE_MODEL='ollama/qwen3:30b'
+        # OPENCODE_MODEL='mistralai/devstral-2-2512'
+        # OPENCODE_MODEL='qwen/qwen3-next-80b'
+        OPENCODE_MODEL='lmstudio-glm/glm-4.7-flash'
+        OPENCODE_CONFIG="${SCRIPT_DIR}/opencode.jsonc"
         # Generate title with format: ralph:YYMMDD:HHMM:iterationOFlimit
         TITLE="ralph:$(date +%y%m%d):$(date +%H%M):${ITERATION}of${ITERATION_LIMIT}"
-        opencode run -m "ollama/$OLLAMA_MODEL" --title "$TITLE" --print-logs --file "$PROMPT_FILE" --log-level "WARN" "Do the work requesteded in $PROMPT_FILE." 2>&1 | tee "$OUTPUT_FILE"
+        opencode run -c "$OPENCODE_CONFIG" -m "$OPENCODE_MODEL" --title "$TITLE" --print-logs --file "$PROMPT_FILE" --log-level "WARN" "Do the work requesteded in $PROMPT_FILE." 2>&1 | tee "$OUTPUT_FILE"
+        # opencode run -m "ollama/$OLLAMA_MODEL" --title "$TITLE" --print-logs --file "$PROMPT_FILE" --log-level "WARN" "Do the work requesteded in $PROMPT_FILE." 2>&1 | tee "$OUTPUT_FILE"
         EXIT_CODE=${PIPESTATUS[0]}
     elif [ "$TOOL" = "claude" ]; then
         # Run claude code CLI in non-interactive mode
