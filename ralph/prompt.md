@@ -1,5 +1,4 @@
-study `_specs/purpose.md` or `docs/main-spec.md` for the overall purpose.
-study `_specs/tech.md` or `docs/project-spec.md` for technical project details.
+study `_specs/` (or `docs/` if `_specs/` doesn't exist) for design docs.
 study `prd.json` for work items completed and those still to be worked on.
 
 research additional information on the project in the _specs and docs directories.
@@ -22,3 +21,25 @@ Whenever you are done:
     4. Commit changes.
     5. Summarize changes and actions taken in 5-8 bullet points.
     6. Return
+
+
+## prd.json example format
+
+Status: [todo,inprogress,done,wontfix]
+Priority: [critical,high,normal,low]
+
+```json
+{
+  "project": "useful-cli-tool",
+  "description": "CLI tool for doing things that are good https://github.com/useful/cli-tool",
+  "issues": [
+    {
+      "id": 1,
+      "title": "Proejct setup",
+      "description": "A longer description of the things to setup.",
+      "status": "todo",
+      "priority": "critical"
+    }
+  ]
+}
+```
