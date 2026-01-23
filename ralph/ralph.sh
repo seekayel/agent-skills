@@ -90,7 +90,8 @@ while [ $ITERATION -lt $ITERATION_LIMIT ]; do
         EXIT_CODE=${PIPESTATUS[0]}
     elif [ "$TOOL" = "claude" ]; then
         # Run claude code CLI in non-interactive mode
-        cat "$PROMPT_FILE" | claude --dangerously-skip-permissions -p 2>&1 | tee "$OUTPUT_FILE"
+        CLAUDE_CODE_OAUTH_TOKEN="${CLAUDE_CODE_OAUTH_TOKEN:-$(op read 'op://keys/env/CLAUDE_CODE_OAUTH_TOKEN')}"
+        cat "$PROMPT_FILE" | CLAUDE_CODE_OAUTH_TOKEN="$CLAUDE_CODE_OAUTH_TOKEN" claude --dangerously-skip-permissions -p 2>&1 | tee "$OUTPUT_FILE"
         EXIT_CODE=${PIPESTATUS[1]}
     elif [ "$TOOL" = "gemini" ]; then
         # Run gemini CLI in yolo mode (auto-approve all actions)
