@@ -15,6 +15,10 @@
     {
       "name": "research-plan-implement-plugin",
       "source": "./plugins/research-plan-implement-plugin"
+    },
+    {
+      "name": "code-review-plugin",
+      "source": "./plugins/code-review-plugin"
     }
   ]
 }
