@@ -13,9 +13,9 @@ Whenever doing frontend/UI changes use your front-end skill to make sure the des
 
 Whenever you are done:
     1. Run the following, fixiing any errors and then trying the whole list again:
-      - `npm run lint`
-      - `npm run build`
-      - `npm run test`
+      - `npm run lint` for bun projects `bun run lint`
+      - `npm run build` for bun projects `bun run build`
+      - `npm run test` for bun projects `bun run test`
     2. Add any missing tests to `prd.json` that need to be kept working.
     3. Add important missing features to `prd.json` that are needed for application to meet its goals.
     4. Commit changes.
