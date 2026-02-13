@@ -141,7 +141,7 @@ while [ $ITERATION -lt $ITERATION_LIMIT ]; do
         EXIT_CODE=${PIPESTATUS[1]}
     elif [ "$CURRENT_CLI" = "gemini" ]; then
         # Run gemini CLI in yolo mode (auto-approve all actions)
-        gemini --yolo "$(cat "$PROMPT_FILE")" 2>&1 | tee "$OUTPUT_FILE"
+        gemini --yolo -p "$(cat "$PROMPT_FILE")" 2>&1 | tee "$OUTPUT_FILE"
         EXIT_CODE=${PIPESTATUS[0]}
     else
         # Run codex (default)
