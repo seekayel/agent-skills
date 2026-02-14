@@ -147,6 +147,25 @@ while [ $ITERATION -lt $ITERATION_LIMIT ]; do
         # Run codex (default)
         cat "$PROMPT_FILE" | codex exec --dangerously-bypass-approvals-and-sandbox 2>&1 | tee "$OUTPUT_FILE"
         EXIT_CODE=${PIPESTATUS[1]}
+
+        # If codex default model hits usage limit, retry once with codex-5.2.
+        if grep -qi "you've hit your usage limit" "$OUTPUT_FILE"; then
+            echo ""
+            echo "Codex usage limit detected. Retrying with model codex-5.2..."
+
+            RETRY_OUTPUT_FILE=$(mktemp)
+            cat "$PROMPT_FILE" | codex exec --model codex-5.2 --dangerously-bypass-approvals-and-sandbox 2>&1 | tee "$RETRY_OUTPUT_FILE"
+            EXIT_CODE=${PIPESTATUS[1]}
+
+            mv "$RETRY_OUTPUT_FILE" "$OUTPUT_FILE"
+
+            if grep -qi "you've hit your usage limit" "$OUTPUT_FILE"; then
+                echo ""
+                echo "Codex usage limit reached on fallback model codex-5.2. Stopping."
+                rm -f "$OUTPUT_FILE"
+                exit 1
+            fi
+        fi
     fi
 
     # Check for OpenAI usage limit error (429)
