@@ -66,9 +66,9 @@ CLIS_DISPLAY=$(IFS=,; echo "${CLIS[*]}")
 # Get the directory where this script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROMPT_FILE="${SCRIPT_DIR}/prompt.md"
-STOP_FILE="${SCRIPT_DIR}/STOP"
 # Get the project root directory (where script is invoked from - prd.json lives here)
 PROJECT_ROOT="$PWD"
+STOP_FILE="${PROJECT_ROOT}/.ralph/STOP"
 
 # Check if prompt file exists
 if [ ! -f "$PROMPT_FILE" ]; then
@@ -107,9 +107,10 @@ while [ $ITERATION -lt $ITERATION_LIMIT ]; do
         exit 0
     fi
 
-    # Check if STOP file exists
+    # Check if stop file exists in project .ralph directory
     if [ -f "$STOP_FILE" ]; then
-        echo "STOP file detected at $STOP_FILE. Exiting."
+        echo "STOP file detected at $STOP_FILE. Removing and stopping iterations."
+        rm -f "$STOP_FILE"
         exit 0
     fi
 
