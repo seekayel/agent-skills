@@ -2,6 +2,22 @@
 
 Collection of skills for Claude Code agents.
 
+## Skills
+
+Skills live in the `skills/` directory and install standalone via the [skills CLI](https://github.com/vercel-labs/skills). Run `./install.sh` to print the install commands (`--run` executes them).
+
+### unslop
+
+Cuts AI tells from writing (puffery, em dash overuse, filler, chatbot phrases) and rewrites in the direct, conversational voice of [kamlasater.com/blog](https://kamlasater.com/blog). Adapted from the `unslop` skill in [cursor/plugins](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop) (pstack).
+
+```bash
+# Claude Code
+npx skills add seekayel/agent-skills --skill unslop -a claude-code
+
+# Codex
+npx skills add seekayel/agent-skills --skill unslop -a codex
+```
+
 ## Plugins
 
 ### research-plan-implement-plugin
@@ -11,6 +27,7 @@ A structured workflow for AI-assisted development using research, planning, and 
 ### orchestration-plugin
 
 Tools for orchestrating and improving coding agent workflows.
+
 
 ## Usage
 

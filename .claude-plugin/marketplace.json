@@ -9,10 +9,6 @@
   },
   "plugins": [
     {
-      "name": "ralph-plugin",
-      "source": "./plugins/ralph-plugin"
-    },
-    {
       "name": "research-plan-implement-plugin",
       "source": "./plugins/research-plan-implement-plugin"
     },
