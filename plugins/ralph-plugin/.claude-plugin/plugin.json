@@ -1,7 +1,0 @@
-{
-    "name": "ralph-plugin",
-    "version": "0.0.1",
-    "description": "Ralph plugin for Claude Code",
-    "skills": "./groom-project/"
-  }
-  
